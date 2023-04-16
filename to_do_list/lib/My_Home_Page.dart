@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
             itemCount: item.length,
             itemBuilder: (context, index) {
               return InkWell(
-                onTap: () {
+                onDoubleTap: () {
                   setState(() {
                     item.removeAt(index);
                   });
