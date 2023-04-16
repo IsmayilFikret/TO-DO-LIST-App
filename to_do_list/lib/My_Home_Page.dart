@@ -21,59 +21,67 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.search,
-              size: 32,
-            ),
+      appBar: _MyAppBar(),
+      body: _Body(),
+    );
+  }
+
+  AppBar _MyAppBar() {
+    return AppBar(
+      actions: [
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.search,
+            size: 32,
           ),
-          IconButton(
-            onPressed: () {
-              addItemToList();
-              controller.text = '';
-            },
-            icon: const Icon(
-              Icons.add,
-              size: 32,
-            ),
+        ),
+        IconButton(
+          onPressed: () {
+            addItemToList();
+            controller.text = '';
+          },
+          icon: const Icon(
+            Icons.add,
+            size: 32,
           ),
-        ],
-        title: Text('TO-DO APP'),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: item.length,
-              itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () {
-                    setState(() {
-                      item.removeAt(index);
-                    });
-                  },
-                  child: Card(
-                    child: ListTile(
-                      title: Text(item[index]),
-                    ),
+        ),
+      ],
+      title: Text('TO-DO APP'),
+    );
+  }
+
+  Column _Body() {
+    return Column(
+      children: [
+        Expanded(
+          child: ListView.builder(
+            itemCount: item.length,
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {
+                  setState(() {
+                    item.removeAt(index);
+                  });
+                },
+                child: Card(
+                  child: ListTile(
+                    title: Text(item[index]),
                   ),
-                );
-              },
-            ),
+                ),
+              );
+            },
           ),
-          TextField(
-            controller: controller,
-            decoration: const InputDecoration(
-                filled: true,
-                fillColor: Colors.white,
-                hintText: 'add text',
-                hintStyle: TextStyle(fontSize: 20)),
-          ),
-        ],
-      ),
+        ),
+        TextField(
+          controller: controller,
+          decoration: const InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
+              hintText: 'add text',
+              hintStyle: TextStyle(fontSize: 20)),
+        ),
+      ],
     );
   }
 }
