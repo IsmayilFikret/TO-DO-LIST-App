@@ -46,31 +46,37 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         ],
-        title: TextField(
-          controller: controller,
-          decoration: const InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              hintText: 'add text',
-              hintStyle: TextStyle(fontSize: 20)),
-        ),
       ),
-      body: ListView.builder(
-        itemCount: item.length,
-        itemBuilder: (context, index) {
-          return InkWell(
-            onTap: () {
-              setState(() {
-                item.removeAt(index);
-              });
-            },
-            child: Card(
-              child: ListTile(
-                title: Text(item[index]),
-              ),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: item.length,
+              itemBuilder: (context, index) {
+                return InkWell(
+                  onTap: () {
+                    setState(() {
+                      item.removeAt(index);
+                    });
+                  },
+                  child: Card(
+                    child: ListTile(
+                      title: Text(item[index]),
+                    ),
+                  ),
+                );
+              },
             ),
-          );
-        },
+          ),
+          TextField(
+            controller: controller,
+            decoration: const InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                hintText: 'add text',
+                hintStyle: TextStyle(fontSize: 20)),
+          ),
+        ],
       ),
     );
   }
