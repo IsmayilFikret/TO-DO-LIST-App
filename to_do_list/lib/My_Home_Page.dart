@@ -1,6 +1,6 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -14,13 +14,8 @@ class _MyHomePageState extends State<MyHomePage> {
   List<String> item = [];
 
   void addItemToList() {
-    setState(() {
-      if (controller.text == '') {
-        return;
-      } else {
-        item.add(controller.text);
-      }
-    });
+    setState(() {});
+    item.add(controller.text);
   }
 
   @override
@@ -32,7 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: () {},
             icon: const Icon(
               Icons.search,
-              size: 35,
+              size: 32,
             ),
           ),
           IconButton(
@@ -42,10 +37,11 @@ class _MyHomePageState extends State<MyHomePage> {
             },
             icon: const Icon(
               Icons.add,
-              size: 35,
+              size: 32,
             ),
           ),
         ],
+        title: Text('TO-DO APP'),
       ),
       body: Column(
         children: [
