@@ -21,6 +21,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: AppBar(
+          title: const Text('To-Do App'),
+        ),
+      ),
       appBar: _MyAppBar(),
       body: _Body(),
     );
