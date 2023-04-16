@@ -38,6 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
           IconButton(
             onPressed: () {
               addItemToList();
+              controller.text = '';
             },
             icon: const Icon(
               Icons.add,
