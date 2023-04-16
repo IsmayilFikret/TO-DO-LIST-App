@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ],
-      title: Text('TO-DO APP'),
+      title: Text('To-Do App'),
     );
   }
 
